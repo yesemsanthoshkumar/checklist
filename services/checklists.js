@@ -1,5 +1,5 @@
 const {client} = require('../lib/db');
-const {map} = require('rambda');
+const Promise = require('bluebird');
 
 /**
  * Inserts the record of the checklist being done along with the tasks
@@ -11,41 +11,40 @@ async function doingTheTaskNow(data) {
         const doneChecklist = await client.query(
             `INSERT INTO DONECHECKLIST(CHECKLIST)
             VALUES($1)
-            RETURNING *`,
+            RETURNING ID`,
             [data.checklist]
-        );   
-    } catch (error) {
-        console.log('Error inserting checklist...');
-        
-    }
-
-    try {
-        console.log('Insering Done tasks...');
-        map(
-            async (doneTask) => {
-                const dtask = await client.query(
-                    `INSERT INTO DONETASKS(CHECKLIST, TASK, STATUS)
-                    VALUES($1, $2, $3)
-                    RETURNING *`,
-                    [doneChecklist.rows[0].id, doneTask.task, doneTask.status]
-                );
-                // console.log(dtask);
-            },
-            data.tasks
         );
-    
-        console.log('Done inserting tasks!!!');   
+
+        console.log('Insering Done tasks...');
+        const doneTasks = await Promise.all(
+            data.tasks.map(
+                async (doneTask) => {
+                    const dtask = await client.query(
+                        `INSERT INTO DONETASKS(CHECKLIST, TASK, STATUS)
+                        VALUES($1, $2, $3)
+                        RETURNING ID, TASK STATUS`,
+                        [doneChecklist.rows[0].id, doneTask.task, doneTask.status]
+                    );
+                    return dtask.rows[0];
+                }
+            )
+        );
+
+        console.log('Done inserting tasks!!!');
+
+        return {
+            doneId: doneChecklist.rows[0].id,
+            status: true,
+            done: doneTasks
+        };
+
     } catch (error) {
         console.log('Error inserting tasks...');
         console.error(error);
         
         return {
             'status': false
-        }
-    }
-
-    return {
-        'status': true
+        };
     }
 }
 
@@ -68,7 +67,7 @@ async function taskIsBeingDone(req, res) {
         )
 
         if (userChecklist.rowCount === 1) {
-            const result = doingTheTaskNow(req.body);
+            const result = await doingTheTaskNow(req.body);
             console.log('Finished doing the tasknow');
             console.log(result);
             res.send(result);
