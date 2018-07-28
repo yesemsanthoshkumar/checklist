@@ -4,7 +4,8 @@
   "description": "A checklist for every task you perform",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [
     "checklist",
@@ -13,8 +14,10 @@
   "author": "yesemsanthoshkumar",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "eslint": "^5.1.0",
     "express": "^4.16.3",
     "pg": "^7.4.3",

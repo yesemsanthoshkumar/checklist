@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "50d062fd-ea71-4d16-a774-403e5160609e",
+		"name": "Redo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all checklist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:15000/checklists/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "15000",
+					"path": [
+						"checklists",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new checklist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Meeting\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"name\": \"Laptop\",\n\t\t\t\"description\": \"Needed for taking notes\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Earphone\",\n\t\t\t\"description\": \"Speaker mike is not easy\"\n\t\t}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:15000/checklists/add/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "15000",
+					"path": [
+						"checklists",
+						"add",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List a single checklist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:15000/checklists/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "15000",
+					"path": [
+						"checklists",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Its task time",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"checklist\": 1,\n\t\"tasks\": [\n\t\t{\n\t\t\t\"task\": 1,\n\t\t\t\"status\": 200\n\t\t},\n\t\t{\n\t\t\t\"task\": 2,\n\t\t\t\"status\": 300\n\t\t},\n\t\t{\n\t\t\t\"task\": 3,\n\t\t\t\"status\": 200\n\t\t}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:15000/checklists/itsTasksTime",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "15000",
+					"path": [
+						"checklists",
+						"itsTasksTime"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
