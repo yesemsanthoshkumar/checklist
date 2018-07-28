@@ -1,0 +1,59 @@
+.Redo {
+  text-align: center;
+  height: inherit;
+  width: inherit;
+  flex: auto;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  float: right;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sidebar-content {
+  background: cornflowerblue;
+  overflow: scroll;
+  float: left;
+  padding: 2px;
+  height: inherit;
+  flex: 1;
+}
+
+.content-wrapper {
+  background: purple;
+  float: right;
+  overflow: scroll;
+  padding: 2px;
+  height: inherit;
+  flex: auto;
+}
+
+.user-details {
+  background: white;
+  padding: inherit;
+}
+
+#root {
+  height: inherit;
+  width: inherit;
+}
