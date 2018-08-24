@@ -1,5 +1,6 @@
 const {client} = require('../lib/db');
 const Promise = require('bluebird');
+const {map} = require('rambda');
 
 /**
  * Inserts the record of the checklist being done along with the tasks
@@ -22,7 +23,7 @@ async function doingTheTaskNow(data) {
                     const dtask = await client.query(
                         `INSERT INTO DONETASKS(CHECKLIST, TASK, STATUS)
                         VALUES($1, $2, $3)
-                        RETURNING ID, TASK STATUS`,
+                        RETURNING ID, TASK, STATUS`,
                         [doneChecklist.rows[0].id, doneTask.task, doneTask.status]
                     );
                     return dtask.rows[0];
