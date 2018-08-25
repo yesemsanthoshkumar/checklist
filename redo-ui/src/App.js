@@ -60,17 +60,15 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App container">
-			<div className="header-wrapper">
-			<p>Header</p>
-			</div>
-			<div className="content-wrapper">
-			<div className="side-content-wrapper">
-			<ul>
-			<RedoList
-			redoArray={this.state.savedRedo}
-			getRedo={this.getSingleRedo}
-			/>
+			<div className="App">
+			  <h1 className="header">Header</h1>
+			
+			<div className="sidebar">
+			 <ul>
+			  <RedoList
+		          redoArray={this.state.savedRedo}
+			  getRedo={this.getSingleRedo}
+			 />
 			</ul>
 			{
 				this.state.active !== -1 ?
@@ -94,12 +92,10 @@ class App extends Component {
 				</SkyLight> : ''
 			}
 			</div>
-			<div className="main-content-wrapper">
-			Today
+			<div className="todos">
+			 Today
 			</div>
-			</div>
-			</div>
-		);
+        	</div>);
 	}
 }
 
