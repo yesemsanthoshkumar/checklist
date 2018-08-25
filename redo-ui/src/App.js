@@ -93,7 +93,9 @@ class App extends Component {
 			}
 			</div>
 			<div className="todos">
-			 Today
+			 
+			<input type="text"/> 
+			  Today
 			</div>
         	</div>);
 	}
