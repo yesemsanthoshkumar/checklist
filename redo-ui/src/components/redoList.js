@@ -1,20 +1,15 @@
 import React from "react";
 import { Panel } from "react-bootstrap";
 
-const RedoList = ({redoArray, getRedo, active})=>{
+const RedoList = ({redoArray, getRedo})=>{
     return redoArray.map(x=>(
-        <Panel
+        <li
             key={x.id}
             className="redo-wrapper"
-            onClick={()=>getRedo(x.id)}
-            defaultExpanded={active}>
+            onClick={()=>getRedo(x)}
+        >
             <Panel.Title>{x.name}</Panel.Title>
-            <Panel.Body className="tasks">
-                {
-                    x.tasks?x.tasks.map(x=><div key={x.id}><p>{x.name}</p></div>): []
-                }
-            </Panel.Body>
-        </Panel>
+        </li>
     ));
 };
 

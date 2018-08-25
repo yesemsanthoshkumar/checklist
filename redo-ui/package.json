@@ -6,7 +6,8 @@
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "react-skylight": "^0.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
