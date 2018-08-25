@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
-import RedoList from "./components/redoList";
 import SkyLight from "react-skylight";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+
+import RedoList from "./components/redoList";
+
+import './App.css';
 
 class App extends Component {
 	constructor(props) {
@@ -15,7 +17,7 @@ class App extends Component {
 	}
 	
 	componentWillMount() {
-		fetch("http://127.0.0.1:15000/checklists/",{
+		fetch("http://192.168.31.185:15000/checklists/",{
 		headers: {
 			'Content-Type': 'application/json'
 		}
@@ -28,7 +30,7 @@ class App extends Component {
 }
 
 	getSingleRedo(redoObj){
-		fetch("http://127.0.0.1:15000/checklists/" + redoObj.id)
+		fetch("http://192.168.31.185:15000/checklists/" + redoObj.id)
 		.then(res=>res.json())
 		.then(data=>{
 			const redoArr = [];
