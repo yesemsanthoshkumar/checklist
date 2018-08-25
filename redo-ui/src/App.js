@@ -61,43 +61,43 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App container">
-				<div className="header-wrapper">
-					<p>Header</p>
-				</div>
-				<div className="content-wrapper">
-					<div className="side-content-wrapper">
-						<ul>
-							<RedoList
-							redoArray={this.state.savedRedo}
-							getRedo={this.getSingleRedo}
-							/>
-						</ul>
-						{
-							this.state.active !== -1 ?
-								<SkyLight
-									ref={ref=>this.redoModal = ref}
-									title={this.state.savedRedo[this.state.active].name}
-									>
-									<ListGroup>
-										{
-											this.state.savedRedo[this.state.active].tasks.map(x=>(
-												<ListGroupItem
-													key={x.id}
-													header={x.name}
-													className="task-wrapper"
-												>
-												{x.description}
-												</ListGroupItem>
-											))
-										}
-									</ListGroup>
-								</SkyLight> : ''
-						}
-					</div>
-					<div className="main-content-wrapper">
-					Today
-					</div>
-				</div>
+			<div className="header-wrapper">
+			<p>Header</p>
+			</div>
+			<div className="content-wrapper">
+			<div className="side-content-wrapper">
+			<ul>
+			<RedoList
+			redoArray={this.state.savedRedo}
+			getRedo={this.getSingleRedo}
+			/>
+			</ul>
+			{
+				this.state.active !== -1 ?
+				<SkyLight
+				ref={ref=>this.redoModal = ref}
+				title={this.state.savedRedo[this.state.active].name}
+				>
+				<ListGroup>
+				{
+					this.state.savedRedo[this.state.active].tasks.map(x=>(
+						<ListGroupItem
+						key={x.id}
+						header={x.name}
+						className="task-wrapper"
+						>
+						{x.description}
+						</ListGroupItem>
+					))
+				}
+				</ListGroup>
+				</SkyLight> : ''
+			}
+			</div>
+			<div className="main-content-wrapper">
+			Today
+			</div>
+			</div>
 			</div>
 		);
 	}
