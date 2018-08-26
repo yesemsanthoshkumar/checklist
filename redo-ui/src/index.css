@@ -8,8 +8,42 @@ body {
   padding: 0px 20px;
 }
 
-.todos {
-  list-style: none;
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+ padding: 0px 20px;
+ background-color: rebeccapurple;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+  flex-basis: 200px;
+}
+
+.list-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+}
+
+.toDay {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.19);
   margin: 100px auto;
   width: 360px;
@@ -17,7 +51,8 @@ body {
   background-color: #fff;
 }
 
-.todos h5 {
+.toDay input[type="text"]{
+  background: #f4f4f4;
   font-size: 16px;
   font-weight: 300;
   margin-left: 10px;
@@ -58,6 +93,10 @@ body {
 .todos h5:hover span.incomplete {
   background: #ff9966;
 }
+.toDay h5{
+  margin: 0px;
+  margin-left: 10px;
+ }
 
 .redo-wrapper {
   flex: 0.025;
@@ -76,4 +115,32 @@ body {
 
 .task-wrapper {
   text-align: left;
+  border-bottom-style: solid;
+  border-width: thin;
+}
+
+.modal-title {
+  background-color: cornflowerblue;
+  padding: 10px;
+}
+
+.sidebar-element {
+  background-color: rgb(177, 166, 216);
+  font-size: 20px;
+  padding: 5px;
+}
+
+.add-new {
+  background-color: rgb(143, 141, 141);
+  height: 50px;
+  text-align: center;
+}
+
+.add-new p {
+  padding: 15px;
+}
+
+.add-new-form {
+  display: flex;
+  flex-direction: column;
 }
