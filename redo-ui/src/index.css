@@ -1,16 +1,15 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
   background-color: #cfd8dc;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
-.header{
- padding: 0px 20px;
+.header {
+  padding: 0px 20px;
 }
 
-.todos{
+.todos {
+  list-style: none;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.19);
   margin: 100px auto;
   width: 360px;
@@ -18,19 +17,47 @@ body {
   background-color: #fff;
 }
 
-.todos input[type="text"]{
-  background: #f4f4f4;
+.todos h5 {
   font-size: 16px;
-  width: 90%;
-  outline: none;
-  border: 0px;
-  padding: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+  border: 1px solid #fff;
+  transition: all 0.5s;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
 }
 
-.todos h5{
-  margin: 0px;
-  margin-left: 10px;
- }
+.complete {
+  background: #b3ffcc;
+}
+
+.incomplete {
+  background: #ffccb3;
+}
+
+.todos h5 span {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  transition: all 0.5s;
+}
+
+.todos h5:hover span {
+  transition: all 0.5s;
+}
+
+.todos h5:hover span.complete {
+  background: #66ff99;
+}
+
+.todos h5:hover span.incomplete {
+  background: #ff9966;
+}
 
 .redo-wrapper {
   flex: 0.025;
@@ -50,4 +77,3 @@ body {
 .task-wrapper {
   text-align: left;
 }
-
